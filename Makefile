@@ -47,9 +47,9 @@ $(NAME): $(SRC)
 	ar rc $@ $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+	/bin/rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	/bin/rm -f $(NAME)
 
 re: fclean all
