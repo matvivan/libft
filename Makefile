@@ -42,11 +42,9 @@ OBJ = ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o \
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rc $@ $^
-
-$(OBJ) : $(SRC) 
+$(NAME): $(SRC)  
 	gcc -c $^ -I. $(CFLAGS)
+	ar rc $@ $(OBJ)
 
 clean:
 	rm -f $(OBJ)
