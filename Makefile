@@ -42,14 +42,14 @@ OBJ = ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o \
 
 all: $(NAME)
 
-$(NAME): $(SRC)  
-	gcc -c $^ -I. $(CFLAGS)
-	ar rc $@ $(OBJ)
+$(NAME): 
+	gcc -c $(SRC) -I. $(CFLAGS)
+	ar rc $(NAME) $(OBJ)
 
 clean:
-	rm -f $(OBJ)
+	/bin/rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	/bin/rm -f $(NAME)
 
 re: fclean all
