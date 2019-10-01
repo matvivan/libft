@@ -12,9 +12,9 @@
 
 #include "libft.h"
 
-t_list		**ft_lstsplit(char const *s, char c)
+t_list		*ft_lstsplit(char const *s, char c)
 {
-	t_list	**new;
+	t_list	*new;
 	int		len;
 
 	new = NULL;
@@ -29,7 +29,7 @@ t_list		**ft_lstsplit(char const *s, char c)
 					len = ft_strchr(s, c) - s;
 				else
 					len = ft_strchr(s, '\0') - s;
-				ft_lstadd(new, ft_lstnew(ft_strsub(s, 0, len), len));
+				ft_lstaddend(&new, ft_lstnew(ft_strsub(s, 0, len), len));
 				s += --len;
 			}
 			s++;

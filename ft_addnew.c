@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_addnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matvivan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/25 13:19:20 by matvivan          #+#    #+#             */
-/*   Updated: 2019/09/25 16:10:21 by matvivan         ###   ########.fr       */
+/*   Created: 2019/09/30 20:50:20 by matvivan          #+#    #+#             */
+/*   Updated: 2019/09/30 20:50:24 by matvivan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+char	**ft_addnew(char **arr, size_t size, char *elem)
 {
-	if (lst)
-	{
-		if (lst->next)
-			ft_lstiter(lst->next, f);
-		f(lst);
-	}
-}
+	char	**new;
+	size_t	i;
 
+	i = 0;
+	new = (char **)malloc((size + 1) * sizeof(char *));
+	if (!new)
+		return (NULL);
+	if (arr)
+	{
+		while (i < size)
+		{
+			new[i] = ft_strsub(arr[i], 0, ft_strlen(arr[i]));
+			i++;
+		}
+		free(arr);
+	}
+	new[i] = elem;
+	return (new);
+}

@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstfold.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matvivan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/25 13:19:20 by matvivan          #+#    #+#             */
-/*   Updated: 2019/09/25 16:10:21 by matvivan         ###   ########.fr       */
+/*   Created: 2019/09/30 22:45:37 by matvivan          #+#    #+#             */
+/*   Updated: 2019/09/30 23:31:01 by matvivan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+t_list *ft_lstfold(t_list **alst, t_list *(*f)(t_list *a, t_list *b))
 {
-	if (lst)
+	if (*alst)
 	{
-		if (lst->next)
-			ft_lstiter(lst->next, f);
-		f(lst);
+		if ((*alst)->next)
+			return (f(*alst, ft_lstfold(&((*alst)->next), f)));
+		else
+			return (*alst);
 	}
+	else
+		return (NULL);
 }
-

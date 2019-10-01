@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstaddend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matvivan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/25 13:19:20 by matvivan          #+#    #+#             */
-/*   Updated: 2019/09/25 16:10:21 by matvivan         ###   ########.fr       */
+/*   Created: 2019/09/30 22:09:43 by matvivan          #+#    #+#             */
+/*   Updated: 2019/09/30 22:22:20 by matvivan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+void ft_lstaddend(t_list **alst, t_list *new)
 {
-	if (lst)
+	if (new)
 	{
-		if (lst->next)
-			ft_lstiter(lst->next, f);
-		f(lst);
+		if (*alst)
+		{
+			if ((*alst)->next)
+				ft_lstaddend(&((*alst)->next), new);
+			else
+				(*alst)->next = new;
+		}
+		else
+			*alst = new;
 	}
 }
-

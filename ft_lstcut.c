@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstcut.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matvivan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/25 13:19:20 by matvivan          #+#    #+#             */
-/*   Updated: 2019/09/25 16:10:21 by matvivan         ###   ########.fr       */
+/*   Created: 2019/09/30 22:32:10 by matvivan          #+#    #+#             */
+/*   Updated: 2019/09/30 22:39:01 by matvivan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		ft_lstiter(t_list *lst, void (*f)(t_list *elem))
+void ft_lstcut(t_list **alst, t_list *lst)
 {
-	if (lst)
+	if (*alst)
 	{
-		if (lst->next)
-			ft_lstiter(lst->next, f);
-		f(lst);
+		if (*alst == lst)
+			*alst = lst->next;
+		else
+			ft_lstcut(&((*alst)->next), lst);
 	}
 }
-

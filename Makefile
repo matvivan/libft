@@ -1,3 +1,4 @@
+
 #******************************************************************************#
 #                                                                              #
 #                                                         :::      ::::::::    #
@@ -6,7 +7,7 @@
 #    By: matvivan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/16 19:20:05 by matvivan          #+#    #+#              #
-#    Updated: 2019/09/29 16:18:10 by matvivan         ###   ########.fr        #
+#    Updated: 2019/09/30 23:25:09 by matvivan         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,7 +25,8 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 		ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
 		ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 		ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c \
-		ft_lstsplit.c
+		ft_lstsplit.c ft_addnew.c ft_lstprint.c	ft_lstsize.c \
+		ft_lstfind.c ft_lstaddend.c ft_lstcut.c ft_lstfold.c
 
 OBJ = ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o \
 		ft_memchr.o ft_memcmp.o ft_strlen.o ft_strdup.o ft_strcpy.o \
@@ -38,8 +40,9 @@ OBJ = ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o \
 		ft_itoa.o ft_putchar.o ft_putstr.o ft_putendl.o ft_putnbr.o \
 		ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o \
 		ft_lstnew.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o ft_lstiter.o ft_lstmap.o \
-		ft_lstsplit.o
-
+		ft_lstsplit.o ft_addnew.o ft_lstprint.o ft_lstsize.o \
+		ft_lstfind.o ft_lstaddend.o ft_lstcut.o	ft_lstfold.o
+ 
 all: $(NAME)
 
 $(NAME): 

@@ -12,28 +12,6 @@
 
 #include "libft.h"
 
-static char	**ft_addnew(char **arr, size_t size, char *elem)
-{
-	char	**new;
-	size_t	i;
-
-	i = 0;
-	new = (char **)malloc((size + 1) * sizeof(char *));
-	if (!new)
-		return (NULL);
-	if (arr)
-	{
-		while (i < size)
-		{
-			new[i] = ft_strsub(arr[i], 0, ft_strlen(arr[i]));
-			i++;
-		}
-		free(arr);
-	}
-	new[i] = elem;
-	return (new);
-}
-
 char		**ft_strsplit(char const *s, char c)
 {
 	char	**new;
