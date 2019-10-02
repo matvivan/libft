@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_list *ft_lstfold(t_list **alst, t_list *(*f)(t_list *a, t_list *b))
+t_list	*ft_lstfold(t_list **alst, t_list *(*f)(t_list *a, t_list *b))
 {
 	if (*alst)
 	{

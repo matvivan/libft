@@ -85,11 +85,12 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstsplit(char const *s, char c);
 char				**ft_addnew(char **arr, size_t size, char *elem);
-void 				ft_lstprint(t_list *lst);
+void				ft_lstprint(t_list *lst);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstfind(t_list **alst, char *s);
 void				ft_lstaddend(t_list **alst, t_list *new);
 void				ft_lstcut(t_list **alst, t_list *new);
-t_list				*ft_lstfold(t_list **alst, t_list *(f)(t_list *a, t_list *b));
+t_list				*ft_lstfold(t_list **alst,
+											t_list *(f)(t_list *a, t_list *b));
 
 #endif

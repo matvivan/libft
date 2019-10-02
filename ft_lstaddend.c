@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void ft_lstaddend(t_list **alst, t_list *new)
+void	ft_lstaddend(t_list **alst, t_list *new)
 {
 	if (new)
 	{

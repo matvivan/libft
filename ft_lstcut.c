@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void ft_lstcut(t_list **alst, t_list *lst)
+void	ft_lstcut(t_list **alst, t_list *lst)
 {
 	if (*alst)
 	{
