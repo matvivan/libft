@@ -13,6 +13,7 @@
 
 NAME = libft.a
 CFLAGS = -Wall -Wextra -Werror
+ARFLAGS = rc
 SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 		ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c \
 		ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c \
@@ -28,17 +29,22 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 		ft_lstadd.c ft_lstiter.c ft_lstmap.c \
 		ft_lstsplit.c ft_addnew.c ft_lstprint.c	ft_lstsize.c \
 		ft_lstfind.c ft_lstaddend.c ft_lstcut.c ft_lstfold.c
- 
+
+.PHONY: fclean re
+
+.SILENT:
+
 all: $(NAME)
 
-$(NAME): 
-	gcc -c $(SRC) -I. $(CFLAGS)
-	ar rc $(NAME) $(SRC:.c=.o)
+$(NAME): $(NAME)($(SRC:.c=.o))
+	echo "Library '$(NAME)': up-to-date."
 
 clean:
-	rm -f $(SRC:.c=.o)
+	$(RM) $(SRC:.c=.o)
+	echo "Library '$(NAME)': cleaned."
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
+	echo "Library '$(NAME)': deleted."
 
 re: fclean all
