@@ -7,12 +7,13 @@
 #    By: matvivan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/16 19:20:05 by matvivan          #+#    #+#              #
-#    Updated: 2019/09/30 23:25:09 by matvivan         ###   ########.fr        #
+#    Updated: 2019/10/03 15:49:13 by matvivan         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME = libft.a
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -c
+ARFLAGS = rc
 SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 		ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c \
 		ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c \
@@ -31,14 +32,14 @@ SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
  
 all: $(NAME)
 
-$(NAME): 
-	gcc -c $(SRC) -I. $(CFLAGS)
-	ar rc $(NAME) $(SRC:.c=.o)
+$(NAME): $(SRC)
+	$(CC) $(CFLAGS) $^
+	$(AR) $(ARFLAGS) $@ $(^:.c=.o)
 
-clean:
-	rm -f $(SRC:.c=.o)
+clean: $(SRC)
+	$(RM) -f $(^:.c=.o)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) -f $(NAME)
 
 re: fclean all
